@@ -44,6 +44,9 @@ docker network create --attachable mariadb-wp-privnet
 docker network ls
 
 #run container
+vi run_mariadb_with_persistent_volume_and_private_network.sh  
+#!/bin/bash
+
 docker container run -d \
 --name wordpressdb \
 -e MYSQL_ROOT_PASSWORD='redhat' \
@@ -53,6 +56,9 @@ docker container run -d \
 -v /root/var/lib/mysql:/var/lib/mysql \
 --network mariadb-wp-privnet \
 mariadb
+
+vi run_wordpress_with_persistent_volume_and_published_port.sh 
+#!/bin/bash
 
 docker container run -d \
 --name wordpress \
